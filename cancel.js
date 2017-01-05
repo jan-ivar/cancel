@@ -13,4 +13,4 @@ window._nativeFetch = window.fetch;
 
 window.fetch = (url, init) =>
   Promise.race([window._nativeFetch(url, init),
-                Promise.cancel(init.cancel || new Promise())]);
+                Promise.cancel(init.cancel || new Promise(() => {}))]);
